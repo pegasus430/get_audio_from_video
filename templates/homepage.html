@@ -1,0 +1,197 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% load content_extras %}
+
+{% block othermedia %}
+<style type="text/css">
+         .tut_box{float:left;}
+         a.p1 {display:block; text-decoration:none; background:#fff; border:0; margin:20px 0 0 0px; position:relative; z-index:50;}
+         a.p1 img {display:block; border:0;width: 100%}
+         a.p1:hover {text-decoration:none; background-color:#8c97a3; color:#000; position:relative; z-index:500;}
+         a.p1 b, a.p1 c {display:block; position:absolute; left:-9999px; padding:10px; opacity:0;
+         border-radius:3px;
+         box-shadow:0 15px 10px -15px rgba(0,0,0,0.4);
+         -webkit-transition: opacity 0.6s ease-in-out;
+         -moz-transition: opacity 0.6s ease-in-out;
+         -o-transition: opacity 0.6s ease-in-out;
+         -ms-transition: opacity 0.6s ease-in-out;
+         transition: opacity 0.6s ease-in-out;
+         }
+         a.p1:hover b {top:-120px; left:-445px; padding:10px; border:1px solid #ddd; background:#fff; opacity:1.0;}
+         a.p1:hover c {top:-120px; left:-500px; padding:10px; border:1px solid #ddd; background:#fff; opacity:1.0;}
+      </style>
+{% endblock %}
+
+{% block mainarea %}
+    {% include "searchbar.html" %}
+    <div class="mainwrapper">
+    <div class="container w-975">
+       <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+             <div class="step_titl text-center">
+                <h2>Download Youtube videos in these 4 simple steps:</h2>
+             </div>
+          </div>
+          <div class="clearfix"></div>
+       </div>
+       <div class="row">
+          <div class="step_tut">
+             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <div class="tut_box">
+                   <div class="arrow-right" style="float:right">
+                      <img src="{{ STATIC_URL }}img/rightarrow.png" width="50px" height="35px" style="width:50px;margin-right:-29px;" />
+                   </div>
+                   <div><h4>Step 1</h4></div>
+                   <div>
+                      <!-- <a class="p1" href="#v"> -->
+                         <img class="img-responsive" width="214px" height="144px"  src="{{ STATIC_URL }}img/Step1.png" alt>
+                      <!-- </a> -->
+                   </div>
+                   <div>
+                      <h5>Enter a search term</h5>
+                   </div>
+                   <div class="clearfix"></div>
+                </div>
+             </div>
+             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <div class="tut_box">
+                   <div class="arrow-right" style="float:right">
+                      <img src="{{ STATIC_URL }}img/rightarrow.png" style="width:50px;margin-right:-29px;" width="50px" height="35px" />
+                   </div>
+                   <div><h4>Step 2</h4></div>
+                   <div>
+                      <!-- <a class="p1" href="#v"> -->
+                         <img class="img-responsive" width="214px" height="144px"  src="{{ STATIC_URL }}img/Step2.png" alt>
+                      <!-- </a> -->
+                   </div>
+                   <div>
+                      <h5>Choose your video</h5>
+                   </div>
+                </div>
+             </div>
+             <div class="visible-xs clearfix"></div>
+             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <div class="tut_box">
+                   <div class="arrow-right" style="float:right">
+                      <img src="{{ STATIC_URL }}img/rightarrow.png" width="50px" height="35px" style="width:50px;margin-right:-29px;" />
+                   </div>
+                   <div><h4>Step 3</h4></div>
+                   <div>
+                      <!-- <a class="p1" href="#v">  -->
+                         <img class="img-responsive" width="214px" height="144px"  src="{{ STATIC_URL }}img/Step3.png" alt>
+                      <!-- </a> -->
+                   </div>
+                   <div><h5>Select format & convert</h5></div>
+
+                </div>
+             </div>
+             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                  <div class="tut_box">
+                      <div><h4>Step 4</h4></div>
+                      <div>
+                         <!-- <a class="p1" href="#v">  -->
+                            <img class="img-responsive" width="214px" height="144px"  src="{{ STATIC_URL }}img/Step4.png" alt>
+                         <!-- </a> -->
+                      </div>
+                      <div>
+                         <h5>Download file</h5>
+                      </div>
+                </div>
+             </div>
+             <div class="clearfix"></div>
+          </div>
+       </div>
+       <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+             <div class="title_gray label label-default">Most Recent Conversions</div>
+          </div>
+          <div class="clearfix"></div>
+       </div>
+       <div class="row">
+          {% for video in recent %}
+             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                 <div class="video_thum_box">
+                    <div class="vido">
+                       <a href="{{video.get_absolute_url}}">
+                       <img alt="{{ video.title }}" src="{{video.thumbnail }}">
+                       </a>
+                    </div>
+                    <div class="video_desc clearfix">
+                       <span class="dru"><strong>Duration:</strong> {{video.duration|makeminutes}}</span>
+                       <span class="vie"><strong>Views:</strong> {{video.views|intcomma}}</span>
+                    </div>
+                    <h3><span>Title</span><a href="{{video.get_absolute_url}}">{{video.title|slice:":58"}}</a></h3>
+                    <h4><span>Description</span>{{video.get_description|slice:":58"}}</h4>
+                 </div>
+              </div>
+          {% endfor %}
+          <div class="clearfix"></div>
+       </div>
+    </div>
+   <!--  <div class="content">
+
+     <div class="mem_benefit_tbl mem_benefit_tbl2" style="display: none;">
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+             <tr>
+                <th class="frst" colspan="2">Create an account and receive the following benefits:</th>
+             </tr>
+             <tr class="bg_blu">
+                <td>
+                   <div class="member_tic"></div>
+                </td>
+                <td class="frst" width="360">Unlimited number of conversions per day</td>
+             </tr>
+             <tr>
+                <td>
+                   <div class="member_tic"></div>
+                </td>
+                <td class="frst">No delay waiting for conversions to start.  No ads displayed.</td>
+             </tr>
+             <tr class="bg_blu">
+                <td>
+                   <div class="member_tic"></div>
+                </td>
+                <td class="frst">Priority over guest visitors in the conversion queue</td>
+             </tr>
+             <tr>
+                <td>
+                   <div class="member_tic"></div>
+                </td>
+                <td class="frst">Browser add-on for quick conversions while on video sites</td>
+             </tr>
+             <tr class="bg_blu">
+                <td class="frst" colspan="2">
+                   <div class="btn_red m10 clearfix"><a href="https://{{ amember_url }}/signup/index" class="fr">Create Account ></a></div>
+                </td>
+             </tr>
+          </table>
+       </div>
+       <div class="cust_review" style="display: none;">
+          <h4>Customer Reviews</h4>
+          <div class="cust_review_box_main">
+             <div class="cust_review_box">Amazing! Now i can expand my music library and download my favorite songs in seconds!</div>
+             <h5>Erica Johnston</h5>
+          </div>
+          <div class="cust_review_box_main">
+             <div class="cust_review_box">I love being able to convert youtube videos to take with me when I travel.  I give your site an A+!</div>
+             <h5>Sachit Tatavarti</h5>
+          </div>
+          <div class="cust_review_box_main">
+             <div class="cust_review_box">Its so fast and so easy that even my 90 year-;d grandma can use it!  Keep up the good work guys!</div>
+             <h5>Wayne Lau</h5>
+          </div>
+          <div class="cust_review_box_main">
+             <div class="btn_gren m30 btn_shadow"><a href="#">Read More ></a></div>
+          </div>
+       </div>
+    </div> -->
+</div>
+{% endblock %}
+
+{% block mainbody %}
+<!-- this is homepage
+<form action="/videos/search/" method="post">{% csrf_token %}
+        Enter query or video url : <input type="text" name="query" /> <br />
+        <input type="submit" value="Search" name="submit" />
+</form> -->
+{% endblock %}

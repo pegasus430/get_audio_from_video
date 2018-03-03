@@ -1,0 +1,200 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% load content_extras %}
+
+{% block othermedia %}
+<style type="text/css">
+         .tut_box{float:left;}
+         a.p1 {display:block; text-decoration:none; background:#fff; border:0; margin:20px 0 0 0px; position:relative; z-index:50;}
+         a.p1 img {display:block; border:0;}
+         a.p1:hover {text-decoration:none; background-color:#8c97a3; color:#000; position:relative; z-index:500;}
+         a.p1 b, a.p1 c {display:block; position:absolute; left:-9999px; padding:10px; opacity:0;
+         border-radius:3px;
+         box-shadow:0 15px 10px -15px rgba(0,0,0,0.4);
+         -webkit-transition: opacity 0.6s ease-in-out;
+         -moz-transition: opacity 0.6s ease-in-out;
+         -o-transition: opacity 0.6s ease-in-out;
+         -ms-transition: opacity 0.6s ease-in-out;
+         transition: opacity 0.6s ease-in-out;
+         }
+         a.p1:hover b {top:-120px; left:-445px; padding:10px; border:1px solid #ddd; background:#fff; opacity:1.0;}
+         a.p1:hover c {top:-120px; left:-500px; padding:10px; border:1px solid #ddd; background:#fff; opacity:1.0;}
+      </style>
+{% endblock %}
+
+
+{% block mainarea %}
+    <div class="video-box-show">
+        {% include "searchbar.html" %}
+         <div class="mainwrapper">
+            <div class="container w-975">
+               <div class="row">
+                  <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+                     <div class="title_gray s-result label label-default">Search results</div>
+                  </div>
+                  <div class="col-xs-6 col-sm-3 col-md-offset-1 col-md-3 col-lg-offset-1 col-lg-3">
+                     <p class="show_result" align="center">
+                        Showing page {{page}} of {{last_page}}
+                     </p>
+                     <form action="/videos/search/" name="paginatore" method="post">{% csrf_token %}
+                          <input type="hidden" name="query" value="{{query}}">
+                          <input type="hidden" id="paginatorepage" name="page" value="1">
+                     </form>
+                     <script type="text/javascript">
+                           function gotopage(pageid){
+                              var f = document.forms['paginatore'];
+                              document.getElementById("paginatorepage").value = pageid;
+                              f.submit();
+                           }
+                     </script>
+                  </div>
+                  <div class="col-xs-12 col-sm-5 col-md-6 col-lg-6">
+                     <ul class="pagination">
+                        {% ifnotequal page 1 %}
+                            <li><a onclick="gotopage(1);">&laquo; First</a></li>
+                            <li><a onclick="gotopage({{pre}});">&laquo;</a></li>
+                        {% endifnotequal %}
+
+                        {% for p in pages %}
+                            {% ifequal p page %}
+{#                                <li class="selected">{{p}}</li>#}
+                                <li class="selected">{{p}}</li>
+                            {% else %}
+                                <li><a onclick="gotopage({{p}});">{{p}}</a></li>
+                            {% endifequal %}
+                        {% endfor %}
+                        {% ifnotequal page last_page %}
+                            <li><a onclick="gotopage({{next}});">&raquo;</a></li>
+                            <li><a onclick="gotopage({{last_page}});">Last &raquo;</a></li>
+                        {% endifnotequal %}
+                     </ul>
+                     <!-- <ul class="pagination">
+                       <li class="selected">1</li>
+                       <li><a onclick="gotopage(2);">2</a></li>
+                       <li><a onclick="gotopage(3);">3</a></li>
+                       <li><a onclick="gotopage(2);">»</a></li>
+                       <li><a onclick="gotopage(82);">Last »</a></li>
+                     </ul> -->
+                  </div>
+                  <div class="clearfix"></div>
+               </div>
+               <div class="row">
+                  {% for video in videos %}
+                     <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                         <div class="video_thum_box">
+                            <div class="vido">
+                               <a href="{{ video.get_absolute_url }}">
+                               <img alt="{{ video.title }}" src="{{video.thumbnail}}">
+                               </a>
+                            </div>
+                            <div class="video_desc clearfix">
+                               <span class="dru"><strong>Duration:</strong> {{video.duration|makeminutes}}</span>
+                               <span class="vie"><strong>Views:</strong> {{video.views|intcomma}}</span>
+                            </div>
+                            <h3><span>Title</span><a href="{{ video.get_absolute_url }}">{{video.title|slice:":120"}}</a></h3>
+                            <h4><span>Description</span>{{video.get_description|slice:":160"}}</h4>
+                         </div>
+                     </div>
+                     {% if forloop.counter|divisibleby:"2" %}
+                         <div class="clearfix visible-xs"></div>
+                         {% if forloop.counter|divisibleby:"4" %}
+                             <div class="clearfix visible_lg visible_md"></div>
+                         {% endif %}
+                     {% endif %}
+                  {% endfor %}
+                  <div class="clearfix"></div>
+               </div>
+                <div class="row">
+                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <ul class="pagination">
+                        {% ifnotequal page 1 %}
+                            <li><a onclick="gotopage(1);">&laquo; First</a></li>
+                            <li><a onclick="gotopage({{pre}});">&laquo;</a></li>
+                        {% endifnotequal %}
+
+                        {% for p in pages %}
+                            {% ifequal p page %}
+{#                                <li class="selected">{{p}}</li>#}
+                                <li class="selected">{{p}}</li>
+                            {% else %}
+                                <li><a onclick="gotopage({{p}});">{{p}}</a></li>
+                            {% endifequal %}
+                        {% endfor %}
+                        {% ifnotequal page last_page %}
+                            <li><a onclick="gotopage({{next}});">&raquo;</a></li>
+                            <li><a onclick="gotopage({{last_page}});">Last &raquo;</a></li>
+                        {% endifnotequal %}
+                     </ul>
+                 </div>
+               </div>
+                  <div class="clearfix"></div>
+               </div>
+            </div>
+           <!--  <div class="content">
+
+             <div class="mem_benefit_tbl mem_benefit_tbl2" style="display: none;">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                     <tr>
+                        <th class="frst" colspan="2">Create an account and receive the following benefits:</th>
+                     </tr>
+                     <tr class="bg_blu">
+                        <td>
+                           <div class="member_tic"></div>
+                        </td>
+                        <td class="frst" width="360">Unlimited number of conversions per day</td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <div class="member_tic"></div>
+                        </td>
+                        <td class="frst">No delay waiting for conversions to start.  No ads displayed.</td>
+                     </tr>
+                     <tr class="bg_blu">
+                        <td>
+                           <div class="member_tic"></div>
+                        </td>
+                        <td class="frst">Priority over guest visitors in the conversion queue</td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <div class="member_tic"></div>
+                        </td>
+                        <td class="frst">Browser add-on for quick conversions while on video sites</td>
+                     </tr>
+                     <tr class="bg_blu">
+                        <td class="frst" colspan="2">
+                           <div class="btn_red m10 clearfix"><a href="https://{{ amember_url }}/signup/index" class="fr">Create Account ></a></div>
+                        </td>
+                     </tr>
+                  </table>
+               </div>
+               <div class="cust_review" style="display: none;">
+                  <h4>Customer Reviews</h4>
+                  <div class="cust_review_box_main">
+                     <div class="cust_review_box">Amazing! Now i can expand my music library and download my favorite songs in seconds!</div>
+                     <h5>Erica Johnston</h5>
+                  </div>
+                  <div class="cust_review_box_main">
+                     <div class="cust_review_box">I love being able to convert youtube videos to take with me when I travel.  I give your site an A+!</div>
+                     <h5>Sachit Tatavarti</h5>
+                  </div>
+                  <div class="cust_review_box_main">
+                     <div class="cust_review_box">Its so fast and so easy that even my 90 year-;d grandma can use it!  Keep up the good work guys!</div>
+                     <h5>Wayne Lau</h5>
+                  </div>
+                  <div class="cust_review_box_main">
+                     <div class="btn_gren m30 btn_shadow"><a href="#">Read More ></a></div>
+                  </div>
+               </div>
+            </div> -->
+         </div>
+    </div>
+{% endblock %}
+
+
+
+
+
+
+
+

@@ -1,0 +1,379 @@
+
+/* ==================== PRICING TABLE  ==================== */
+/* --- base --- */
+div.p_table 
+	{
+	width: 100%;
+	height: 100%;
+	font-size: 12px;
+	font-weight: normal;
+	color: #444444;
+	line-height: normal !important;
+	}
+
+/* --- hyperlinks --- */
+div.p_table a
+	{
+	color: #010101;
+	text-decoration: none;
+	}
+	
+/* --- lists --- */
+div.p_table ul
+	{
+	margin: 0px;
+	padding: 0px !important;
+	list-style-type: none !important;
+	}
+	
+div.p_table li
+	{
+	margin: 0px;
+	padding: 0px !important;
+	list-style-type: none !important;
+	}
+
+/* --- div aligns --- */
+div.p_table .align_center
+	{
+	text-align: center;
+	}
+	
+/* --- div rounded corners --- */
+/* --- border radius 3px --- */	
+div.p_table .radius3
+	{
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	}
+	
+/* --- border radius 5px top left --- */	
+div.p_table .radius5_topleft
+	{
+	border-radius: 5px 0px 0px 0px;
+	-webkit-border-top-left-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	}
+	
+/* --- border radius 5px top right --- */	
+div.p_table .radius5_topright
+	{
+	border-radius: 0px 5px 0px 0px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-topright: 5px;
+	}
+	
+/* ==================== HEADINGS  ==================== */
+/* ------ common styles ------  */
+div.p_table h1,
+div.p_table h2,
+div.p_table h3
+	{
+	margin: 0px;
+	padding: 0px !important;
+	font-weight: normal !important;
+	border: 0 !important;
+	line-height: normal !important;
+	}
+	
+div.p_table h1
+	{
+	font-size: 18px;
+	}
+	
+div.p_table h1 span
+	{
+	font-size: 15px;
+	}
+
+div.p_table h2
+	{
+	font-size: 16px;
+	}
+	
+div.p_table h3
+	{
+	font-size: 13px;
+	}	
+	
+/* ==================== COLUMNS  ==================== */
+/* ------ common styles ------  */
+/* --- header row 1 ---  */
+ li.header_row_1 ,
+div.p_table div.column_1 li.header_row_1,
+div.p_table div.column_2 li.header_row_1,
+div.p_table div.column_3 li.header_row_1,
+div.p_table div.column_4 li.header_row_1
+	{
+	height: 46px;
+	width: 100%;
+	padding: 4px 0px 0px 0px !important;
+	}
+	
+/* --- header row 2 ---  */
+div.p_table div.caption_column li.header_row_2,
+div.p_table div.column_1 li.header_row_2,
+div.p_table div.column_2 li.header_row_2,
+div.p_table div.column_3 li.header_row_2,
+div.p_table div.column_4 li.header_row_2
+	{
+	height: 60px;
+	width: 100%;
+	padding: 10px 0px 0px 0px !important;
+	}
+	
+/* --- caption correction --- */
+ li.header_row_2
+	{	
+	height: 60px;
+	width: 100%;
+	padding: 10px 0px 0px 0px !important;
+	}
+	
+/* ==================== CAPTION COLUMN  ==================== */
+div.p_table div.caption_column
+	{
+	width: 20%;
+	height: 100%;
+	float: left;
+	}
+
+/* =================== COLUMN STYLE 1  ==================== */
+div.p_table div.column_1
+	{
+	width: 20%;
+	height: 100%;
+	float: left;
+	position: relative;
+	}
+	
+/* ==================== COLUMN STYLE 2  ==================== */
+div.p_table div.column_2
+	{
+	width: 20%;
+	height: 100%;
+	float: left;
+	position: relative;
+	}	
+	
+/* ==================== COLUMN STYLE 3  ==================== */
+div.p_table div.column_3
+	{
+	width: 20%;
+	height: 100%;
+	float: left;
+	position: relative;
+	}
+	
+/* ==================== COLUMN STYLE 4  ==================== */
+div.p_table div.column_4
+	{
+	width: 20%;
+	height: 100%;
+	float: left;
+	position: relative;
+	}
+	
+/* ========== COLUMN HOVERS ========== */
+div.p_table div.column_1:hover,
+div.p_table div.column_2:hover,
+div.p_table div.column_3:hover,
+div.p_table div.column_4:hover
+	{
+	position: relative;
+	z-index: 100;
+	left: -5px;
+	top: -10px;
+	/* shadow */
+	box-shadow: 5px 0px 30px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 5px 0px 30px rgba(0,0,0,0.5);
+	-moz-box-shadow: 5px 0px 30px rgba(0,0,0,0.5);
+	}
+	
+div.p_table div.column_1:hover li.row_style_1,
+div.p_table div.column_2:hover li.row_style_1,
+div.p_table div.column_3:hover li.row_style_1,
+div.p_table div.column_4:hover li.row_style_1,
+div.p_table div.column_1:hover li.row_style_2,
+div.p_table div.column_2:hover li.row_style_2,
+div.p_table div.column_3:hover li.row_style_2,
+div.p_table div.column_4:hover li.row_style_2,
+div.p_table div.column_1:hover li.row_style_3,
+div.p_table div.column_2:hover li.row_style_3,
+div.p_table div.column_3:hover li.row_style_3,
+div.p_table div.column_4:hover li.row_style_3,
+div.p_table div.column_1:hover li.row_style_4,
+div.p_table div.column_2:hover li.row_style_4,
+div.p_table div.column_3:hover li.row_style_4,
+div.p_table div.column_4:hover li.row_style_4
+	{
+	min-height: 39px;
+	padding-top: 12px !important;
+	padding-left: 5px !important;
+	padding-right: 5px !important;
+	}
+	
+div.p_table div.column_1:hover li.header_row_1,
+div.p_table div.column_2:hover li.header_row_1,
+div.p_table div.column_3:hover li.header_row_1,
+div.p_table div.column_4:hover li.header_row_1
+	{
+	padding-left: 5px !important;
+	padding-right: 5px !important;
+	border-radius: 5px 5px 0px 0px;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	}	
+
+div.p_table div.column_1:hover li.header_row_2,
+div.p_table div.column_2:hover li.header_row_2,
+div.p_table div.column_3:hover li.header_row_2,
+div.p_table div.column_4:hover li.header_row_2
+	{
+	padding-left: 5px !important;
+	padding-right: 5px !important;
+	}
+	
+div.p_table div.column_1:hover li.footer_row,
+div.p_table div.column_2:hover li.footer_row,
+div.p_table div.column_3:hover li.footer_row,
+div.p_table div.column_4:hover li.footer_row
+	{
+	padding-left: 5px !important;
+	padding-right: 5px !important;
+	}	
+	
+/*==================== DATA ROWS  ====================*/
+/* ------ common styles ------  */
+div.p_table li.row_style_1,
+div.p_table li.row_style_2,
+div.p_table li.row_style_3,
+div.p_table li.row_style_4
+	{
+	width: 100%;	
+	min-height: 39px;
+	padding-top: 9px !important;
+	float: left;
+	}
+
+div.p_table li.row_style_1 span,
+div.p_table li.row_style_2 span,
+div.p_table li.row_style_3 span,
+div.p_table li.row_style_4 span
+	{
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+	display:block;
+	font-size:95%;
+	}
+	
+/* --- white ---  */
+div.p_table li.row_style_1
+	{
+	background-color: #ffffff;
+	}
+	
+/* --- light gray ---  */
+div.p_table li.row_style_2
+	{
+	background-color: #f6f6f6;
+	}
+	
+/* --- mid gray ---  */
+div.p_table li.row_style_3
+	{
+	background-color: #ebebeb;
+	}
+	
+/* --- dark gray ---  */
+div.p_table li.row_style_4
+	{
+	background-color: #e3e3e3;
+	}
+	
+/*========== FOOTER  ==========*/
+/* ------ common styles ------  */
+div.p_table li.footer_row
+	{
+	width: 100%;
+	height: 40px;
+	padding-top: 14px !important;
+	padding-bottom: 6px !important;
+	float: left;
+	border-top: 1px solid #d3d3d3;
+	border-bottom: 2px solid #404040;
+	background-color: #e2e2e2; /* background color for non-css3 browsers */
+	/* gradient */
+	background-image: linear-gradient(top, #f6f6f6, #d0d0d0); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6', endColorstr='#d0d0d0'); /* IE5.5 - 7 */
+	-ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6', endColorstr='#d0d0d0'); /* IE8 */
+	background: -ms-linear-gradient(top, #f6f6f6, #d0d0d0); /* IE9 */
+	background: -moz-linear-gradient(top, #f6f6f6, #d0d0d0); /* Firefox */ 
+	background: -o-linear-gradient(top, #f6f6f6, #d0d0d0); /* Opera 11  */
+	background: -webkit-linear-gradient(top, #f6f6f6, #d0d0d0); /* Chrome 11  */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f6f6f6), color-stop(1, #d0d0d0)); /* Chrome 10, Safari */	
+	}
+	
+/* --- button --- */
+div.p_table a.sign_up
+	{
+	width: 90%;
+	height: 22px;
+	padding: 8px 0px 0px 0px !important;
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	text-shadow: 0px 1px 0px #ffffff; /* text shadow for firefox 3.6+ */ 
+	border: 1px solid #b5b5b5;
+	outline: none;
+	background-position:0 -1360px!important;
+	/* shadow */
+	box-shadow: 0px 1px 0px rgba(255,255,255,0.5);
+	-webkit-box-shadow: 0px 1px 0px rgba(255,255,255,0.5);
+	-moz-box-shadow: 0px 1px 0px rgba(255,255,255,0.5);
+	/* font */
+	font-weight: bold;
+	text-transform:uppercase;
+	font-size:90%;
+	}
+
+/* --- button hover --- */
+div.p_table a.sign_up:hover
+	{
+	padding: 8px 0px 0px 0px !important;
+	background-position:0 -1394px !important;
+	}
+/* --- button active --- */
+div.p_table a.sign_up:active
+	{
+	background-position:0 -1428px !important;
+	}
+
+
+/* ==================== COLUMN RIBBONS  ==================== */
+/* --- base --- */
+div.column_ribbon
+	{
+	width: 42px;
+	height: 42px;
+	position: absolute;
+	right: 0;
+	}
+	
+/* --- hover--- */	
+div.p_table div.column_1:hover div.column_ribbon,
+div.p_table div.column_2:hover div.column_ribbon,
+div.p_table div.column_3:hover div.column_ribbon,
+div.p_table div.column_4:hover div.column_ribbon
+	{
+	right: -10px;
+	}
+	
+/* ------ ribbon styles ------  */
+/* --- style1--- */	
+div.ribbon_style1_hot { background: url(../images/ribbon_style1_hot.png); }
+div.ribbon_style1_hot_caps { background: url(../images/ribbon_style1_hot_caps.png); }

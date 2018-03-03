@@ -1,0 +1,17 @@
+sudo apt-get update
+sudo apt-get upgrade
+
+sudo apt-get install python-dev python-setuptools git apache2 libapache2-mod-wsgi  python-memcache sqlite3 memcached postgresql python-psycopg2 python-pip rabbitmq-server
+
+#newrelic server monitoring
+sudo curl -L http://download.newrelic.com/debian/newrelic.list -o /etc/apt/sources.list.d/newrelic.list
+sudo apt-get update
+sudo apt-get install --allow-unauthenticated newrelic-sysmond
+sudo nrsysmond-config --set license_key=e66195b4179a9cbdce7e6f7e1543be4d26e1ca81
+
+# edit /etc/newrelic/nrsysmond.cfg ... set 
+
+
+#Converter needs(needs multiverse!):-
+# try sudo add-apt-repository ppa:jon-severinsson/ffmpeg
+sudo apt-get install ffmpeg libavcodec-extra-53 libavcodec-dev python-dev python-setuptools git python-memcache python-psycopg2 python-pip 

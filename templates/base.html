@@ -1,0 +1,377 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width">
+
+<!-- Begin Heap Analytics -->
+<script type="text/javascript">
+  window.heap=window.heap||[],heap.load=function(t,e){window.heap.appid=t,window.heap.config=e;var a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=("https:"===document.location.protocol?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+t+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(t){return function(){heap.push([t].concat(Array.prototype.slice.call(arguments,0)))}},p=["clearEventProperties","identify","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
+  heap.load("1822874423");
+</script>
+<!-- End Heap Analytics -->
+
+
+<!-- Begin GoSquared Code
+<script>
+  !function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(
+  arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];
+  d.src='{{ STATIC_URL }}js/tracker.js';
+  q.parentNode.insertBefore(d,q)}(window,document,'script','_gs');
+
+  _gs('GSN-372563-R');
+</script>
+<!-- End GoSquared Code -->
+
+<!-- Begin Inspectlet Embed Code
+<script type="text/javascript" id="inspectletjs">
+	window.__insp = window.__insp || [];
+	__insp.push(['wid', 368074153]);
+	(function() {
+		function __ldinsp(){
+            var insp = document.createElement('script');
+            insp.type = 'text/javascript';
+            insp.async = true;
+            insp.id = "inspsync";
+            insp.src = "{{ STATIC_URL }}js/inspectlet.js";
+            var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(insp, x); }
+		if (window.attachEvent){
+			window.attachEvent('onload', __ldinsp);
+		}else{
+			window.addEventListener('load', __ldinsp, false);
+		}
+	})();
+</script>
+<!-- End Inspectlet Embed Code -->
+
+<!-- start Maxly Alerts for getaudiofromvideo.com -->
+<script>
+var _va = _va || {}; 
+(function(d) { 
+	_va.key = '1LIA8X';  _va.starttime = (new Date()).getTime();
+	var ns = d.createElement('script'); ns.async = true;
+	ns.src = d.location.protocol+'//d23p9gffjvre9v.cloudfront.net/api/core.js';
+	var es = d.getElementsByTagName('script')[0]; es.parentNode.insertBefore(ns, es);
+})(document);
+</script>
+<!-- end Maxly Alerts for getaudiofromvideo.com -->
+
+<!--Crazy Egg start
+<script type="text/javascript">
+setTimeout(function(){var a=document.createElement("script");
+var b=document.getElementsByTagName("script")[0];
+a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0014/5315.js?"+Math.floor(new Date().getTime()/3600000);
+a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+</script>
+<!-- Crazy Egg end -->
+
+<!-- Optimizely start
+<script src="//cdn.optimizely.com/js/138306781.js"></script>
+<!-- Optimizely end -->
+
+<script type="text/javascript">
+/* <![CDATA[ */
+window.setCookie = function(c_name,value){
+	var exdate=new Date();
+	var exdays = 365;
+	exdate.setDate(exdate.getDate() + exdays);
+	var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString()) + '; path=/';
+	document.cookie=c_name + "=" + c_value;
+};
+
+window.getCookie = function(c_name){
+	var i,x,y,ARRcookies=document.cookie.split(";");
+	for (i=0;i<ARRcookies.length;i++){
+		x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+		y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+		x=x.replace(/^\s+|\s+$/g,"");
+		if (x==c_name){
+ 			return unescape(y);
+   		}
+	}	
+};
+
+
+
+var asyncscriptloader = function(url, callback){
+	var d = document;
+	var head= d.getElementsByTagName('head')[0];
+   	var script= d.createElement('script');
+   	var realcallback = function(){
+   		callback();
+   		callback = function(){
+   			// does nothing
+   		};
+   	}
+   	script.type= 'text/javascript';
+   	script.onreadystatechange= function () {
+      	if (this.readyState == 'complete') realcallback();
+   	}
+   	script.onload= realcallback;
+   	script.src= url;
+   	head.appendChild(script);
+};
+
+var jqueryasyncfns = [];
+
+function dologin(){
+	var f = document.forms["header_login"];
+	var redir = document.createElement("input");
+	redir.name = "amember_redirect_url";
+	redir.type = "hidden";
+	redir.value = document.URL;
+	f.appendChild(redir)
+	//console.log(f);
+	f.submit();
+	//document.forms["header_login"].submit();
+}
+
+
+function dologin_from_modal(){
+	var f = document.forms["header_modal_login"];
+	var redir = document.createElement("input");
+	redir.name = "amember_redirect_url";
+	redir.type = "hidden";
+	redir.value = document.URL;
+	f.appendChild(redir)
+	//console.log(f);
+	f.submit();
+	//document.forms["header_login"].submit();
+}
+
+
+var do_auth = function(obj, w, d){
+    if (typeof(obj.status) == "undefined"){
+        obj.status = false;
+    }
+	w.memberstatus = obj.status;
+	w.rawauthobj = obj;
+	w.logged = obj.logged;
+	var html = "";
+	if (obj.logged){
+		//console.log(obj.priv.length);
+		if (obj.priv.length > 0){
+			//has at least 1 product
+			w.memberstatus = true;
+		} else {
+			w.memberstatus = false;
+		}
+        mobile_html = "<div class='btn-group'>" +
+                        "<button type='button' class='btn create_account dropdown-toggle icon-caret' data-toggle='dropdown'>" +
+                          "My Account<span class='caret'></span>" +
+                        "</button>" +
+                        "<ul class='dropdown-menu' role='menu'>" +
+                           "<li>" +
+                              "<a href='https://{{ amember_url }}/member/index' data-toggle='modal' class='create_account'>" +
+                                "My Account" +
+                              "</a>" +
+                           "</li>" +
+                           "<li>" +
+                              "<a href='https://{{ amember_url }}/login/logout' data-toggle='modal' class='btn_logout' style='float:left;'>Logout</a>" +
+                           "</li>" +
+                        "</ul>" +
+                      "</div>";
+
+        w.username = obj.name;
+		html += "<div class=\"member_login\">Welcome " + obj.name + "</div>";
+		html += "<a href=\"https://{{ amember_url }}/member/index\" class=\"create_account mt5\" style=\"float:left;\">My Account</a>";
+		html += "<a href=\"https://{{ amember_url }}/login/logout\" class=\"btn_logout mt5 ml8\" style=\"float:left;\">Logout</a>";
+		if (w.memberstatus == false){
+			html += "<div class=\"member_login\" style=\"color:red\">Your account membership payment is past due</div>";
+		}
+	} else {
+        mobile_html = "<button type='button' data-toggle='modal' data-target='#modalSignUp' class='btn btn-primary btn-login'>Login / Signup <span class='glyphicon glyphicon-chevron-right'></span></button>'";
+		html += "<form action=\"https://{{ amember_url }}/login\" method=\"post\" name=\"header_login\" title=\"Registration\">";
+		html += "<div class=\"member_login\"><span></span>Member Login</div>";
+		html += "<div class=\"clearfix mt5\">";
+		html += "<input name=\"amember_login\" type=\"text\" value=\"UserName\" size=\"35\" maxlength=\"80\" class=\"login_input\" title=\"Enter user name\" onfocus=\"if(this.value=='UserName'){this.value=''}else{this.value=this.value}\" onblur=\"if(this.value==''){this.value='UserName'}\" />";
+		html += "<a class=\"btn_login mt1\" onclick='dologin()'>Login</a>";
+		html += "</div>";
+		html += "<div class=\"clearfix mt3\">";
+		//html += "<input name = \"amember_redirect_url\" type=\"hidden\" value=\"http://dev.getaudiofromvideo.com/\" />";
+		html += "<input name=\"amember_pass\" type=\"password\" onkeypress=\"if(event.keyCode == 13){dologin();}\" value=\"Password\" size=\"35\" maxlength=\"80\" class=\"login_input\" title=\"Enter you password\" onfocus=\"if(this.value=='Password'){this.value=''}else{this.value=this.value}\" onblur=\"if(this.value==''){this.value='Password'}\" />";
+		html += "<a href=\"https://{{ amember_url }}/signup/index\" class=\"btn_logout mt1\">Signup</a>";
+		html += "</div></form>";
+	}
+	loadhtmlintologin(html, mobile_html);
+};
+
+
+var loadhtmlintologin = function(html, mobile_html){
+
+	var loginarea = document.getElementById("login_box");
+    var mob_loginarea = document.getElementById("mobile_login_box");
+    console.log(mob_loginarea);
+
+    if(mob_loginarea != null) {
+        mob_loginarea.innerHTML = mobile_html;
+	}
+    if (loginarea != null) {
+        loginarea.innerHTML = html;
+    }
+
+	if(mob_loginarea == null || loginarea == null) {
+		setTimeout(function(){loadhtmlintologin(html)}, 100);
+	}
+};
+
+	var d = document;
+	var head= d.getElementsByTagName('head')[0];
+   	var script= d.createElement('script');
+   	script.type= 'text/javascript';
+   	script.src= "https://{{ amember_url }}/testajax.php";
+   	head.appendChild(script);
+/* ]]> */
+	</script>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-8374148-1']);
+  _gaq.push(['_setDomainName', 'getaudiofromvideo.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = "{{STATIC_URL}}js/ga.js";
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+/* ]]> */
+</script>
+
+	
+	{% block pagespecifichead %}
+	<title>Convert YouTube To MP3. YouTube MP3 Converter. Download YouTube Videos</title>
+	<meta name="description" content="Convert YouTube to MP3. Convert YouTube videos in seconds with our YouTube MP3 converter! All conversions with our YouTube to MP3 converter are 100% online!"/>
+	<meta name="keywords" content="convert youtube, convert youtube mp3, convert youtube to mp3, convert youtube videos, youtube mp3 converter, youtube to mp3 converter, converter youtube mp3, converter youtube to mp3"/>
+	<meta name="language" content="english" />
+	<meta name="robots" content="index, follow"/>
+	{% endblock %}
+
+    <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/style_10.css?v=4" />
+	<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/menu.css?v=4" />
+	<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/bundle.css?v=4" />
+	<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/main.css?v=4" />
+
+	<script type="text/javascript" src="{{STATIC_URL}}js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}js/script.js"></script>
+	<script type="text/javascript">
+		jQuery(function($) {
+			var Default = {
+				utils : {
+					miscellaneous : function(){
+						$('.video_thum_box').append('<div class="a"></div><div class="b"></div><div class="c"></div><div class="d"></div>');
+					}
+				}
+			};		
+			Default.utils.miscellaneous();
+		});
+	</script>
+
+<!--	<script type="text/javascript" src="{{STATIC_URL}}js/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" src="{{STATIC_URL}}js/jquery.simpleSlide.js"></script> -->
+           
+        
+	<!-- <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/raw.css" /> -->
+{#	<link rel="stylesheet" media="screen and (max-width:600px)" href="{{STATIC_URL}}css/main_small_device.css?v=4" />#}
+{#	<link rel="stylesheet" media="screen and (max-width:600px)" href="{{STATIC_URL}}css/menu_small_device.css?v=4" />#}
+	<link rel="shortcut icon" href="{{STATIC_URL}}favicon.ico" />
+	<style type="text/css">
+		#d_menu{/*width:852px;*/}
+		.ui-progressbar-value {color: #222222;}
+	</style>
+<!--<script type="text/javascript">$(document).ready( function(){ simpleSlide(); });</script> -->
+
+{% block othermedia %}
+
+{% endblock %}
+	
+</head>
+<body>
+    {% include "header.html" %}
+
+    <div class="bodywrapper">
+        {% block mainarea %}
+        {% endblock %}
+    </div>
+
+    {% include "footer.html" %}
+
+    <!-- Modal SignUp -->
+    <div class="modal fade" id="modalSignUp" tabindex="-1" role="dialog" aria-labelledby="modalSignUpLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title text-center" id="myModalLabel">Sign in to your account</h4>
+            </div>
+            <div class="modal-body">
+               <form action="https://{{ amember_url }}/login" method="post" name="header_modal_login">
+                  <div class="form-group  has-feedback">
+                     <input type="text" class="form-control" id="login" name="amember_login" size="15" value="" placeholder="Username">
+                     <span class="required form-control-feedback">*</span>
+                  </div>
+                  <div class="form-group has-feedback">
+                     <input type="password" class="form-control" id="pass" name="amember_pass" size="15" value="" placeholder="Password">
+                     <input name = "amember_redirect_url" type="hidden" value="http://dev.getaudiofromvideo.com/" />
+                  </div>
+                  <div class="checkbox col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                     <label>
+                        <input type="checkbox">Keep me signed in
+                     </label>
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 p0">
+                     <div class="form-group pull-right">
+                        <div class="forgot-pass">
+                           <a href="" data-toggle="modal" data-target="#modalForgotPassword" id="forgotPass">Forgot your password?</a>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="clearfix"></div>
+                  <div class="form-group pull-left">
+                     <ul class="list-unstyled">
+<!--                        <li><button type="submit" class="btn btn-success">Login</button></li>   -->
+                         <li><a class="btn btn-success" onclick='dologin_from_modal();'>Login</a></li>
+                         <li><a href="https://{{ amember_url }}/signup/index" class="btn btn-danger item-link">Signup</a></li>
+                     </ul>
+
+                  </div>
+                  <div class="clearfix"></div>
+               </form>
+            </div>
+            <div class="modal-footer"></div>
+          </div>
+        </div>
+      </div>
+    <!-- Modal ForgotPassword -->
+    <div class="modal fade" id="modalForgotPassword" tabindex="-1" role="dialog" aria-labelledby="modalSignUpLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title text-center" id="myModalLabel">Forgot your password ?</h4>
+            </div>
+            <div class="modal-body">
+               <form>
+                  <div class="form-group">
+                     <label for="email">Email</label>
+                     <input type="text" class="form-control" id="email" name="amember_email"  value="">
+                  </div>
+                  <div class="form-group">
+                     <input class="btn btn-resent btn-danger" name="commit" type="submit" value="Reset Password">
+                  </div>
+                  <div class="clearfix"></div>
+
+               </form>
+            </div>
+            <div class="modal-footer"></div>
+          </div>
+        </div>
+      </div>
+    <!-- <script type="text/javascript">if(!NREUMQ.f){NREUMQ.f=function(){NREUMQ.push(["load",new Date().getTime()]);var e=document.createElement("script");e.type="text/javascript";e.async=true;e.src="https://js-agent.newrelic.com/nr-100.js";document.body.appendChild(e);if(NREUMQ.a)NREUMQ.a();};NREUMQ.a=window.onload;window.onload=NREUMQ.f;};NREUMQ.push(["nrf2","beacon-6.newrelic.com","b3d761313c",427791,"MlNUZUtUDEdQVE0IVgsZcERXVhZdXlkWBlgDQBhSVlsWUV9DFxdQAEFFC1FaD1FBVl4E",0,2,new Date().getTime()])</script>-->
+
+</body>
+
+</html>

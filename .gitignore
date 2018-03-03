@@ -1,0 +1,7 @@
+*.pyc
+data.db
+local_settings.py
+celeryev.pid
+*.swp
+.env/
+.idea/

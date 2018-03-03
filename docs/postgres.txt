@@ -1,0 +1,32 @@
+sudo -u postgres createuser -P gafv
+# password gafv - superuser yes
+
+
+sudo -u postgres psql template1
+> ALTER USER postgres WITH PASSWORD 'password';
+> CREATE DATABASE gafv OWNER gafv ENCODING 'UTF8';
+
+sudo vi /etc/postgresql/8.4/main/pg_hba.conf
+# add : local   gafv    gafv                      md5
+# change: local   all         all                               md5
+
+verify with:-
+psql -U gafv
+
+Then proceed to load from a previous dump
+
+remember to run following query before loading fixture :-
+delete from auth_group_permissions; delete from auth_permission; delete from django_admin_log; delete from django_content_type;
+
+
+local_settings on server :-
+DATABASES = {
+    'default': {
+        'ENGINE': 'postgresql_psycopg2',
+        'NAME': 'gafv',
+        'USER': 'gafv',
+        'PASSWORD': 'gafv',
+        'HOST': '',
+        'PORT': '',
+    }
+}

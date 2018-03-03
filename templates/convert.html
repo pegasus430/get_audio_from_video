@@ -1,0 +1,1190 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% load content_extras %}
+
+{% block othermedia %}
+<!-- HelloBarSolo begin-->
+<link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}css/hellobar.css" />
+<script type="text/javascript" src="{{ STATIC_URL }}js/hellobar.js"></script>
+<!-- HelloSolo end -->
+{% endblock %}
+<style type="text/css">
+     .tut_box{float:left;}
+     a.p1 {display:block; text-decoration:none; background:#fff; border:0; margin:20px 0 0 0px; position:relative; z-index:50;}
+     a.p1 img {display:block; border:0;}
+     a.p1:hover {text-decoration:none; background-color:#8c97a3; color:#000; position:relative; z-index:500;}
+     a.p1 b, a.p1 c {display:block; position:absolute; left:-9999px; padding:10px; opacity:0;
+     border-radius:3px;
+     box-shadow:0 15px 10px -15px rgba(0,0,0,0.4);
+     -webkit-transition: opacity 0.6s ease-in-out;
+     -moz-transition: opacity 0.6s ease-in-out;
+     -o-transition: opacity 0.6s ease-in-out;
+     -ms-transition: opacity 0.6s ease-in-out;
+     transition: opacity 0.6s ease-in-out;
+     }
+     a.p1:hover b {top:-120px; left:-445px; padding:10px; border:1px solid #ddd; background:#fff; opacity:1.0;}
+     a.p1:hover c {top:-120px; left:-500px; padding:10px; border:1px solid #ddd; background:#fff; opacity:1.0;}
+     @media screen and (min-width: 767px) and (max-width: 990px)  {
+         .fb_iframe_widget {
+            display: inline-block;
+            position: absolute;
+            /* left: 0; */
+            /* right: 0; */
+          }
+     }
+    .fb_iframe_widget_fluid span {
+        width: 100% !important;
+    }
+</style>
+
+{% block pagespecifichead %}
+	<title>{{video.title}}</title>
+	<meta name="DESCRIPTION" content="{{video.get_description|slice:":156"}}" />
+	<meta name="keywords" content="{{video.title}}" />
+	<meta name="robots" content="index, follow" />
+
+{% endblock %}
+
+
+{% block mainarea %}
+
+<!-- BuySellAds Ad Code -->
+<script type="text/javascript">
+(function(){
+  var bsa = document.createElement('script');
+     bsa.type = 'text/javascript';
+     bsa.async = true;
+     bsa.src = 'http://s3.buysellads.com/ac/bsa.js';
+  (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);
+})();
+</script>
+<!-- End BuySellAds Ad Code -->
+
+<!-- start Facebook like button script -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=114477568608883";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+<!-- end Facebook like button script -->
+
+    <!-- <a onclick="var nonwin=navigator.appName!='Microsoft Internet Explorer'?'yes':'no'; window.open(this.href,'welcome','location='+nonwin+',scrollbars=yes,width=435,height=500,menubar=no,toolbar=no'); return false;" href='https://getaudiofromvideo.rhinosupport.com/Widgets/Custom/CreateTicket.php' target='_blank' class="contact_us"></a> -->
+    <div class="container w-975">
+        <div class="row">
+           <div class="hidden-xs col-sm-12 col-md-12 col-lg-12">
+              <div class="btn_blue">
+                 <a href="/videos/search/" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-left"></span> Back to search results</a>
+              </div>
+           </div>
+           <div class="clearfix"></div>
+        </div>
+        <div class="row">
+           <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+              <div class="item-video">
+                 <h2 class="titl_blk18">{{video.title}}</h2>
+                 <div class="convert_video_box">
+                    <iframe width="450" height="370" src="http://www.youtube.com/embed/{{video.ytid}}" frameborder="0" allowfullscreen=""></iframe>
+                 </div>
+              </div>
+              <div class="convert_video_bot">
+                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="pull-left">
+                       Home&nbsp;<span class="glyphicon glyphicon-chevron-right"></span> &nbsp; <!-- <a href="/category/{{video.category}}/"> -->{{video.category}} <!-- </a> -->
+                    </div>
+                 </div>
+                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 p0">
+                    <div class="pull-right">
+                       <div>Views: {{ video.views|intcomma }}</div>
+                    </div>
+                 </div>
+                 <div class="clearfix"></div>
+              </div>
+              <div class="convert_vdo_detail hidden-xs">
+                 <div class="link">http://www.youtube.com/watch?v={{video.ytid}}&amp;feature=youtube_gdata_player</div>
+                 <p>{{video.get_description}}</p>
+              </div>
+              <div class="social_media_icon">
+                 <span class="st_facebook_vcount" displaytext="Facebook" st_processed="yes">
+                    <span style="text-decoration:none;color:#000000;display:inline-block;cursor:pointer;" class="stButton">
+                       <div>
+                          <div class="stBubble" style="display: block;">
+                             <div class="stBubble_count">0</div>
+                          </div>
+                          <span class="stMainServices st-facebook-counter" style="background-image: url(http://w.sharethis.com/images/facebook_counter.png);">&nbsp;<img src="http://w.sharethis.com/images/check-big.png" style="position: absolute; top: -7px; right: -7px; width: 19px; height: 19px; max-width: 19px; max-height: 19px; display: none;"></span>
+                       </div>
+                    </span>
+                 </span>
+                 <span class="st_twitter_vcount" displaytext="Tweet" st_processed="yes">
+                    <span style="text-decoration:none;color:#000000;display:inline-block;cursor:pointer;" class="stButton">
+                       <div>
+                          <div class="stBubble" style="display: block;">
+                             <div class="stBubble_count">0</div>
+                          </div>
+                          <span class="stMainServices st-twitter-counter" style="background-image: url(http://w.sharethis.com/images/twitter_counter.png);">&nbsp;<img src="http://w.sharethis.com/images/check-big.png" style="position: absolute; top: -7px; right: -7px; width: 19px; height: 19px; max-width: 19px; max-height: 19px; display: none;"></span>
+                       </div>
+                    </span>
+                 </span>
+                 <span class="st_googleplus_vcount" displaytext="Google +" st_processed="yes">
+                    <span style="text-decoration:none;color:#000000;display:inline-block;cursor:pointer;" class="stButton">
+                       <div>
+                          <div class="stBubble" style="display: block;">
+                             <div class="stBubble_count">0</div>
+                          </div>
+                          <span class="stButton_gradient"><span class="chicklets googleplus">Google +</span><img src="http://w.sharethis.com/images/check-big.png" style="position: absolute; top: -7px; right: -7px; width: 19px; height: 19px; max-width: 19px; max-height: 19px; display: none;"></span>
+                       </div>
+                    </span>
+                 </span>
+                 <span class="st_pinterest_vcount" displaytext="Pinterest" st_processed="yes">
+                    <span style="text-decoration:none;color:#000000;display:inline-block;cursor:pointer;" class="stButton">
+                       <div>
+                          <div class="stBubble" style="display: block;">
+                             <div class="stBubble_count">0</div>
+                          </div>
+                          <span class="stMainServices st-pinterest-counter" style="background-image: url(http://w.sharethis.com/images/pinterest_counter.png);">&nbsp;<img src="http://w.sharethis.com/images/check-big.png" style="position: absolute; top: -7px; right: -7px; width: 19px; height: 19px; max-width: 19px; max-height: 19px; display: none;"></span>
+                       </div>
+                    </span>
+                 </span>
+                 <span class="st_reddit_vcount" displaytext="Reddit" st_processed="yes">
+                    <span style="text-decoration:none;color:#000000;display:inline-block;cursor:pointer;" class="stButton">
+                       <div>
+                          <div class="stBubble" style="display: block;">
+                             <div class="stBubble_count">0</div>
+                          </div>
+                          <span class="stButton_gradient"><span class="chicklets reddit">Reddit</span><img src="http://w.sharethis.com/images/check-big.png" style="position: absolute; top: -7px; right: -7px; width: 19px; height: 19px; max-width: 19px; max-height: 19px; display: none;"></span>
+                       </div>
+                    </span>
+                 </span>
+                 <span class="st_stumbleupon_vcount" displaytext="Stumble" st_processed="yes">
+                    <span style="text-decoration:none;color:#000000;display:inline-block;cursor:pointer;" class="stButton">
+                       <div>
+                          <div class="stBubble" style="display: block;">
+                             <div class="stBubble_count">0</div>
+                          </div>
+                          <span class="stButton_gradient"><span class="chicklets stumbleupon">Stumble</span><img src="http://w.sharethis.com/images/check-big.png" style="position: absolute; top: -7px; right: -7px; width: 19px; height: 19px; max-width: 19px; max-height: 19px; display: none;"></span>
+                       </div>
+                    </span>
+                 </span>
+              </div>
+           </div>
+           <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 p0 p-mobile">
+              <form action="" id="form_convert" onsubmit="return process()" name="form_get_file" method="post">{% csrf_token %}
+                 <div class="title_gray mt48 hidden-xs label label-default">Download Options</div>
+                 <div class="ml20">
+                    <div class="mt15 ">
+                       <div class="form-group">
+                          <input type="hidden" name="ytid" value="{{video.ytid}}">
+                          <input type="text" name="outputfilename" class="form-control" value="{{video.title}}" class="input_titl blue_box fl">
+                          <label class="label_txt ml15">File Name</label>
+                          <div class="clearfix"></div>
+                       </div>
+                    </div>
+                    <div class="padding-bottom">
+                       <div class="txt_gray_b trans_option1_mai">
+                          <div class="form-group">
+                              <div class="trans_option1">From<br><input type="text" class="input_titl_time blue_box form-control" onkeypress="validateTime(event)" maxlength="5" size="10" value="00:00" id="youtube_start" name="youtube_start">
+                             </div>
+                             <div class="trans_option1_2">to<br><input class="input_titl_time blue_box  form-control" type="text" size="10" onkeypress="validateTime(event)" value="{{video.get_end_time}}" maxlength="5" id="youtube_end" name="youtube_end">
+                             </div>
+                             <div class="item-select">
+                                <label class="pull-left">in</label>
+                                <select class="slect_format blue_box form-control" id="transcoder_quality" name="transcoder_quality">
+                                   <option selected="selected" value="128">High (128 kbps)</option>
+                                   <option value="68">Low (68 kbps)</option>
+                                   <option value="64">Low (64 kbps)</option>
+                                </select>
+                                <label>Quality</label>
+                             </div>
+                             <div class="clearfix"></div>
+                          </div>
+
+                       </div>
+                       <div class="leftfloat">
+                          <div class="form-group">
+                             <label class="label_txt2">File Type</label>
+                             <div class="clear"></div>
+                             <select id="format" name="format" class="slect_format blue_box form-control">
+                                <option value="mp3">MP3 ♫ </option>
+                                <!--<option value="m4r">M4R (Ringtone)</option>-->
+                                <option value="mp4">MP4 (iPod Video)</option>
+                                <option value="aac">AAC (Advanced Audio Coding)</option>
+                                <option value="flv">FLV (Adobe Flash video)</option>
+                                <option value="avi">AVI (Audio Video Interleave)</option>
+                                <option value="wmv">WMV (Windows Media Video)</option>
+                                <option value="wav">WAV (Waveform Audio Format)</option>
+                             </select>
+
+                                <strong class="txt_size fl">size: (2.4 mb)</strong>
+                          </div>
+                       </div>
+                       <div class="edit_tags txt_gray_b" style="min-height:24px">
+                          <div id="id3_selector_parent"><span class="toggle_btn"></span>Edit video ID3 tag data</div>
+                       </div>
+                       <div style="clear:both;"></div>
+                       <div class="edit_vdo_tag_main txt_gray_b clearfix toggle" style="display:none;">
+                          <div class="edit_vdo_tag clearfix" style="position:relative;">
+                             <div class="form-group">
+                                <div class="edit_vdo_tag2"><input type="text" size="50" value="{{ video.title }}" class="form-control" id="ID3_title" name="ID3_title"></div>
+                                <div class="edit_vdo_tag1"><label>Title</label></div>
+                                <div class="click_swap" style="display: none;">
+                                   <div class="btn_blue"><a class="btn_shadow" onclick="return change_title_artist()">Click to swap</a></div>
+                                </div>
+                                <div class="clearfix"></div>
+                             </div>
+                          </div>
+                          <div class="edit_vdo_tag clearfix">
+                             <div class="form-group">
+                               <div class="edit_vdo_tag2"><input type="text" size="50" value="" id="ID3_artist" class="form-control" name="ID3_artist"></div>
+                                <div class="edit_vdo_tag1"><label>Artist<label></div>
+                                <div class="clearfix"></div>
+                             </div>
+
+                          </div>
+                          <div class="edit_vdo_tag clearfix">
+                             <div class="form-group">
+                                <div class="edit_vdo_tag2"><input type="text" size="20" value="" name="ID3_album" class="form-control ID3_album"></div>
+                                <div class="edit_vdo_tag1"><label>Album</label></div>
+                                <div class="clearfix"></div>
+                             </div>
+                          </div>
+                          <div class="edit_vdo_tag clearfix">
+                             <div  class="form-group">
+                                <div class="edit_vdo_tag2">
+                                   <select name="ID3_track_no" class="ID3_track_no form-control">
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="4">4</option>
+                                      <option value="5">5</option>
+                                      <option value="6">6</option>
+                                      <option value="7">7</option>
+                                      <option value="8">8</option>
+                                      <option value="9">9</option>
+                                      <option value="10">10</option>
+                                      <option value="11">11</option>
+                                      <option value="12">12</option>
+                                      <option value="13">13</option>
+                                      <option value="14">14</option>
+                                      <option value="15">15</option>
+                                      <option value="16">16</option>
+                                      <option value="17">17</option>
+                                      <option value="18">18</option>
+                                      <option value="19">19</option>
+                                      <option value="20">20</option>
+                                   </select>
+                                   <div class="edit_vdo_tag1"><label>Track</label></div>
+                                   <div class="clearfix"></div>
+                                </div>
+                             </div>
+                          </div>
+                          <div class="edit_vdo_tag ">
+                             <div class="form-group">
+                                <div class="edit_vdo_tag2"><input type="text" size="10" value="" name="ID3_year" class="form-control ID3_year form-control"></div>
+                                <div class="edit_vdo_tag1"><label>Year</label></div>
+                                <div class="clearfix"></div>
+                             </div>
+
+                          </div>
+                          <div class="edit_vdo_tag ">
+                             <div class="form-group">
+                                <div class="edit_vdo_tag2"><input type="text" size="18" value="" name="ID3_genre" class="form-control ID3_genre"></div>
+                                <div class="edit_vdo_tag1"><label>Genre</label></div>
+                                <div class="clearfix"></div>
+                             </div>
+
+                          </div>
+                          <div class="edit_vdo_tag ">
+                             <div class="form-group">
+                                <div class="edit_vdo_tag2"><textarea name="ID3_comment" rows="" class="form-control" cols=""></textarea></div>
+                                <div class="edit_vdo_tag1"><label>Comments</label></div>
+                                <div class="clearfix"></div>
+                             </div>
+
+                          </div>
+                       </div>
+                    </div>
+                    <!-- BuySellAds Zone Code -->
+                    <div id="bsap_1280101" class="bsap_1280101 bsap hidden-xs" style="margin: 10px 0px;"><a href="https://buysellads.com/buy/detail/12667/zone/1280101?utm_source=site_12667&amp;utm_medium=website&amp;utm_campaign=adhere&amp;utm_content=zone_1280101" title="Advertise Here" class="adhere ad1 odd" target="_blank">Advertise Here</a></div>
+                    <!-- End BuySellAds Zone Code -->
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 p0">
+                       <div class="agree_tos">
+                          <label  style="margin-top:37px">
+                             <span class="check_box" id="toscheckbox" onclick="toggleCheckbox(this);"></span> &nbsp; I agree to the <a href="http://www.getaudiofromvideo.com/terms-of-service/">Terms of Service</a>
+                             <input name="checkTos" id="checkTos" type="checkbox" value="" class="ch_check" style="display:none">
+                          </label>
+                       </div>
+
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 p0">
+                       <div class="pull-right pull-mob-none">
+                          <div id="startconvertbtn" class="btn_red2 btn_shadow" style="margin-top: 17px; display: block;" align="left">
+                             <a onclick="beginconvert()">
+                                <div style="text-align:center;width:175px">
+                                   Start <br>Conversion
+                                </div>
+                             </a>
+                          </div>
+                       </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="progress_main" style="margin-bottom:10px">
+                       <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 p0">
+                          <div id="progress_pct" class="progress_main_titl bold_weight">Progress: 0.0%</div>
+                       </div>
+                       <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 p0">
+                          <div class="progress_box">
+                             <span id="progress_bar" class="progress_box_inr" style="width: 0%;"></span>
+                          </div>
+                       </div>
+                       <div class="clearfix"></div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 p0">
+                       <div id="delaybox" class="delaybox">
+                          <!-- COUNT DOWN start -->
+                          <div id="countdown">
+                             <div class="header3">Please wait...</div>
+                             <div id="mainspinner">55</div>
+                             <div id="mainspinner_bottom">seconds</div>
+                             <div id="or_word">or</div>
+                             <div id="delaycontent">
+                                <a id="become_member" style="float: left;" class="btn_logout mt1" href="https://{{ amember_url }}/signup/index">
+                                   <div style="text-align:center;width:275px">
+                                      Skip waiting! Signup now
+                                   </div>
+                                </a>
+                                <ul class="checkbox_ul">
+                                   <li>
+                                      <span class="checkmark_new"></span>
+                                      <span class="checkmark_text"><b>INSTANT</b> downloads, no waiting to start conversions</span>
+                                   </li>
+                                   <li>
+                                      <span class="checkmark_new"></span>
+                                      <span class="checkmark_text"><b>UNLIMITED</b> number of downloads</span>
+                                   </li>
+                                   <li>
+                                      <span class="checkmark_new"></span>
+                                      <span class="checkmark_text"><b>FASTER</b> conversion speeds</span>
+                                   </li>
+                                </ul>
+                             </div>
+                          </div>
+                          <!-- COUNT DOWN end -->
+                          <!-- RATE LIMIT start -->
+                          <div id="ratelimit" style="display:none">
+                             <div id="delaycontent_limit">
+                                <span id="header_limit">Sorry, as a free user you limited to 3 video conversions!</span>
+                                <a id="become_member_limit" class="btn_logout mt1" href="https://{{ amember_url }}/signup/index">
+                                   <div style="text-align:center;width:275px">
+                                      Skip waiting! Signup now
+                                   </div>
+                                </a>
+                                <ul class="checkbox_ul">
+                                   <li>
+                                      <span class="checkmark_new"></span>
+                                      <span class="checkmark_text"><b>INSTANT</b> downloads, no waiting to start conversions</span>
+                                   </li>
+                                   <li>
+                                      <span class="checkmark_new"></span>
+                                      <span class="checkmark_text"><b>UNLIMITED</b> number of downloads</span>
+                                   </li>
+                                   <li>
+                                      <span class="checkmark_new"></span>
+                                      <span class="checkmark_text"><b>FASTER</b> conversion speeds</span>
+                                   </li>
+                                </ul>
+                             </div>
+                          </div>
+                          <!-- RATE LIMIT end -->
+                          <!-- PROGRESS STATUS start -->
+                          <div id="progressstatus" style="display:none">
+                             <div id="progress_header">
+                                <div id="progress_indictor">
+                                   <img src="{{ STATIC_URL }}img/wait_small.gif">
+                                </div>
+                                <div id="conversion_status" class="bold_weight">Conversion status:</div>
+                                <div id="delay_status_title">Transferring video to our server...</div>
+                             </div>
+                             <br>
+                             <!-- Facebook like button code start-->
+                             <div class="fb-like" id="fb-block" style="float:right;" data-href="http://www.facebook.com/pages/GetAudioFromVideocom/226341067444063" data-send="false" data-width="380" data-show-faces="true" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=114477568608883&amp;href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FGetAudioFromVideocom%2F226341067444063&amp;locale=en_US&amp;sdk=joey&amp;send=false&amp;show_faces=true&amp;width=373px"><span style="width: 373px; height: 25px; display: block; margin: 0 auto;"><iframe name="f10232f384" width="373px" height="1000px" frameborder="0" allowtransparency="true" scrolling="no" title="fb:like Facebook Social Plugin" src="http://www.facebook.com/plugins/like.php?app_id=114477568608883&amp;channel=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter%2FV80PAcvrynR.js%3Fversion%3D41%23cb%3Df1949ffe8c%26domain%3Dwww.getaudiofromvideo.com%26origin%3Dhttp%253A%252F%252Fwww.getaudiofromvideo.com%252Ff355278128%26relation%3Dparent.parent&amp;href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FGetAudioFromVideocom%2F226341067444063&amp;locale=en_US&amp;sdk=joey&amp;send=false&amp;show_faces=true&amp;width=380" style="border: none; visibility: visible; width: 373px; height: 25px;" class=""></iframe></span></div>
+                             <!-- Facebook like button code end-->
+                             <div id="download_url">
+                                <a href="#" class="link_disable">
+                                   <div style="text-align:center;width:175px">
+                                      Download file
+                                   </div>
+                                </a>
+                             </div>
+                          </div>
+                          <!-- PROGRESS STATUS end -->
+                       </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="hidden-xs col-sm-12 col-md-12 col-lg-12 p0">
+                        <div class="fb-comments" data-href="http://www.getaudiofromvideo.com{{video.get_absolute_url}}" data-num-posts="4" data-width="100%"></div>
+                    </div>
+                    <div class="clearfix"></div>
+
+                    <div class="hidden-xs col-sm-12 col-md-12 col-lg-12 p0">
+                       <!--<script type="text/javascript" src="http://www.mmadsgadget.com/t?id=0aa61aca-4bb3-9ea4-0534-b1880d9f78d2&amp;size=100%x60"></script>
+                       <script type="text/javascript" src="http://ib.adnxs.com/ttj?id=1111214&amp;size=100%x60"></script>
+                       <script src="http://ib.adnxs.com/ttj?ttjb=1&amp;bdref=http%3A%2F%2Fwww.getaudiofromvideo.com%2Fvideos%2Fpalavra-cantada-bicicleta%2F&amp;id=1111214&amp;size=100%x60"></script>
+                       <iframe class="pictyre-size" frameborder="0" width="100%" height="60" marginheight="0" marginwidth="0" target="_blank" scrolling="no" src="http://ams1.ib.adnxs.com/if?enc=NRkUto1AWz-ZYZ0cqHtWP-xRuB6F67E_mWGdHKh7Vj82GRS2jUBbP3-gHSBHlt4l1EK-R1GAoDmpYKBTAAAAAK70EAB2AgAAJwoAAAIAAABALfkA4u8CAAAAAQBVU0QAVVNEANQBPAAgCAAAftcAAgUAAQIAAAAATSMQRAAAAAA.&amp;cnd=%21wiUxXQi97P0BEMDa5AcYACDi3wswBDgAQABIpxRQrulDWABghAdoAHAAeACAAQCIAQCQAQGYAQGgARKoAQOwAQC5AZqZmZmZmbk_wQE2GRS2jUBbP8kBF32EgFgL_z_ZAY_C9ShcD05A4AGGkwj1AQAAAAA.&amp;ccd=%21SQdyRQi97P0BEMDa5AcY4t8LIAA.&amp;udj=uf%28%27a%27%2C+339565%2C+1403019433%29%3Buf%28%27c%27%2C+4159037%2C+1403019433%29%3Buf%28%27r%27%2C+16330048%2C+1403019433%29%3B&amp;vpid=77&amp;apid=133845&amp;referrer=http%3A%2F%2Fwww.getaudiofromvideo.com%2Fvideos%2Fpalavra-cantada-bicicleta%2F&amp;ct=0&amp;dlo=1"></iframe>
+                       <script src="http://cdn.adnxs.com/ANX_async_usersync.js"></script>-->
+                    </div>
+                    <div class="clearfix"></div>
+
+                 </div>
+              </form>
+           </div>
+           <div class="clearfix"></div>
+
+        </div>
+        <!-- related videos -->
+        <div class="row">
+           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="title_gray label label-default">Related Videos</div>
+
+           </div>
+           <div class="clearfix"></div>
+           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="title_gray mt48 box_shadow fl" style="display:none;">Comments</div>
+           </div>
+           <div class="clearfix"></div>
+           <div >
+              <!-- <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                 <div class="video_thum_box">
+                    <div class="vido"><a href="/videos/rawid/hpv1zZle9k0/"><img alt="convert youtube" src="http://i1.ytimg.com/vi/hpv1zZle9k0/0.jpg" title="POMAR - PALAVRA CANTADA"></a></div>
+                    <div class="video_desc clearfix"><span class="dru"><strong>Duration: </strong> 03:15</span><span class="vie"><strong>Views:  &nbsp;</strong>15,497</span></div>
+                    <h3><span>Title</span><a href="/videos/rawid/hpv1zZle9k0/">POMAR - PALAVRA CANTADA</a></h3>
+                    <h4><span>Description</span>Dedico esse video a minha filha Yasmin, apenas para comparti</h4>
+                 </div>
+              </div>
+              <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                 <div class="video_thum_box">
+                    <div class="vido"><a href="/videos/rawid/hpv1zZle9k0/"><img alt="convert youtube" src="http://i1.ytimg.com/vi/hpv1zZle9k0/0.jpg" title="POMAR - PALAVRA CANTADA"></a></div>
+                    <div class="video_desc clearfix"><span class="dru"><strong>Duration: </strong> 03:15</span><span class="vie"><strong>Views:  &nbsp;</strong>15,497</span></div>
+                    <h3><span>Title</span><a href="/videos/rawid/hpv1zZle9k0/">POMAR - PALAVRA CANTADA</a></h3>
+                    <h4><span>Description</span>Dedico esse video a minha filha Yasmin, apenas para comparti</h4>
+                 </div>
+              </div>
+              <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                 <div class="video_thum_box">
+                    <div class="vido"><a href="/videos/rawid/aWXTVaAC8tE/"><img alt="convert youtube" src="http://i1.ytimg.com/vi/aWXTVaAC8tE/0.jpg" title="Saudade de minha brincadeira preferida !!!"></a></div>
+                    <div class="video_desc clearfix"><span class="dru"><strong>Duration: </strong> 03:12</span><span class="vie"><strong>Views:  &nbsp;</strong>5,961</span></div>
+                    <h3><span>Title</span><a href="/videos/rawid/aWXTVaAC8tE/">Saudade de minha brincadeira preferida !!!</a></h3>
+                    <h4><span>Description</span>Bicicleta, a paixão de toda criança ! Lindo desenho ! Trecho</h4>
+                 </div>
+              </div>
+              <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                  <div class="video_thum_box">
+                    <div class="vido"><a href="/videos/rawid/La_lU2xIZIk/"><img alt="convert youtube" src="http://i1.ytimg.com/vi/La_lU2xIZIk/0.jpg" title="Menina Moleca (Palavra Cantada)"></a></div>
+                    <div class="video_desc clearfix"><span class="dru"><strong>Duration: </strong> 02:03</span><span class="vie"><strong>Views:  &nbsp;</strong>24,105</span></div>
+                    <h3><span>Title</span><a href="/videos/rawid/La_lU2xIZIk/">Menina Moleca (Palavra Cantada)</a></h3>
+                    <h4><span>Description</span>Essa música é muito, muito legal! Música infantil de qualida</h4>
+                 </div>
+              </div>
+              <div class="clearfix"></div> -->
+           </div>
+        </div>
+        <!-- related videos -->
+     </div>
+
+    <div id="related_videos" class="vdo_related_main container w-975 ">
+        <div id="related_videos_container" class="row"></div>
+        <script type="text/javascript">
+           /* <![CDATA[ */
+           //console.log(getCookie("lastsearch"));
+           window.checkauth = function(){
+               //if (window.logged){
+               if (window.memberstatus){   // true means a logged in user with valid membership
+                   return false;
+               } else {
+                   if (typeof(getCookie("gafvl")) == 'undefined'){
+                       return false;
+                   } else {
+                       window.GUEST_WAIT = true;
+                       return true;
+                   }
+               }
+           };
+
+           asyncscriptloader("http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js", (function(){
+               //load jquery UI we will probably need this
+               //asyncscriptloader("http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js", (function(){
+               //jquery UI loaded
+               //}));
+               // Sliding id3 data box
+               $(".toggle_btn").click(function () {
+                   $(".toggle").slideToggle("slow");
+               });
+               // TOS checkbox
+               window.toggleCheckbox = function(element){
+                   if($(element).hasClass('check_box')){
+                       $('#checkTos').attr('checked', true);
+                       $(element).attr('class', 'check_box_active');
+                   } else {
+                       $('#checkTos').removeAttr('checked');
+                       $(element).attr('class', 'check_box');
+                   }
+               }
+
+               window.lastYoutubeStartTime = "00:00";
+               window.lastYoutubeEndTime = "{{ video.get_end_time }}";
+               window.GUEST_WAIT = false;
+               window.DELAY_TIME = 60; // for test only, 60 is the correct setting
+               window.isContinueConversion = false;    // whether it's the continuing of conversion
+               window.currentTaskId = "";  // current task id
+
+
+               $("#format")[0].onchange = function(){
+                   if ($("#format").val() != "mp3"){
+                       $("#id3_selector_parent").hide();
+                       $(".toggle")[0].style.display = "none";
+                       //if ($(".toggle")[0].style.display == "block"){
+                       //    $(".toggle").slideToggle("slow");
+                       // }
+                   } else {
+                       $("#id3_selector_parent").show();
+                   }
+               }
+
+               // Validation
+               window.validateTime = function(evt) {
+                   var theEvent = evt || window.event;
+                   var key = theEvent.keyCode || theEvent.which;
+                   key = String.fromCharCode( key );
+                   var regex = /[0-9]|\./;
+                   if( !regex.test(key) ) {
+                       theEvent.returnValue = false;
+                       if(theEvent.preventDefault) theEvent.preventDefault();
+                   }
+               }
+               $("#youtube_end").blur(function(){
+                   var value = $(this).val();
+                   var len = value.length;
+                   if (len == 0){
+                       value = lastYoutubeEndTime;
+                       $(this).val(value);
+                       return;
+                   }
+                   if (len < 4){
+                       for (var i=0; i<4-len; i++){
+                           value = "0" + value;
+                       }
+                   }
+                   if (len > 4) {
+                     value = value.substr(0, 3) + ":" + value.substr(3, 2);
+                   } else {
+                     value = value.substr(0, 2) + ":" + value.substr(2, 2);
+                   }
+                   var parts = value.split(":");
+                   var min = parseInt(parts[0]);
+                   var second = parseInt(parts[1]);
+                   if (min * 60 + second > {{ video.duration }}){
+                       value = "{{ video.get_end_time }}";
+                   }
+                   var startparts = $("#youtube_start").val().split(":");
+                   var smin = parseInt(startparts[0]);
+                   var ssec = parseInt(startparts[1]);
+                   if (min * 60 + second < smin * 60 + ssec){
+                       value = lastYoutubeEndTime;
+                   }
+                   $(this).val(value);
+                   lastYoutubeEndTime = value;
+               });
+               $("#youtube_end").focus(function(){
+                   $(this).val("");
+               });
+               $("#youtube_start").focus(function(){
+                   $(this).val("");
+               });
+               $("#youtube_start").blur(function(){
+                   var value = $(this).val();
+                   var len = value.length;
+                   if (len == 0){
+                       $(this).val(lastYoutubeStartTime);
+                       return;
+                   }
+                   if (len < 4){
+                       for (var i=0; i<4-len; i++){
+                           value = "0" + value;
+                       }
+                   }
+                   if (len > 4) {
+                     value = value.substr(0, 3) + ":" + value.substr(3, 2);
+                   } else {
+                     value = value.substr(0, 2) + ":" + value.substr(2, 2);
+                   }
+                   var parts = value.split(":");
+                   var min = parseInt(parts[0]);
+                   var second = parseInt(parts[1]);
+
+                   var endvalue = $("#youtube_end").val();
+                   var endparts = endvalue.split(":");
+                   var endmin = parseInt(endparts[0]);
+                   var endsec = parseInt(endparts[1]);
+
+                   if (min * 60 + second > endmin * 60 + endsec){
+                       value = lastYoutubeStartTime;
+                   }
+
+                   $(this).val(value);
+                   lastYoutubeStartTime = value;
+               });
+
+               // More UI stuff
+
+               //form submission stuff here
+               window.delayeduser = "0"
+               window.delayer = function(delay, started){
+                       // delays for delay milliseconds
+                       // need to add delayer mechanism
+                   if (reached_limit){
+                       showRateLimit();
+                   }
+                   window.delayeduser = "1"
+                   if (!(started)){
+                       $("#delaybox").slideToggle("slow");
+                   }
+                   var newdelay = delay - 1000;
+                   if (newdelay < 0){
+                       startconvert();
+                   } else {
+                       // update the countdown overlay
+                       $("#mainspinner")[0].innerHTML = delay/1000;
+                       setTimeout("delayer(" + newdelay + ", true)", 1000);
+                   }
+               }
+
+               window.showRateLimit = function(){
+                   //$("#delaybox").slideToggle("slow");
+                   $("#countdown").hide();
+                   $("#progressstatus").hide();
+                   $("#ratelimit").show();
+               }
+
+
+               window.beginconvert = function(){
+                   if($(".check_box")[0] != undefined){
+                       alert("You must check the Terms of Service checkbox");
+                       return;
+                   }
+                   if (window.error_happened){
+                       $("#progress_indictor").show();
+                       $("#delay_status_title").html("Preparing conversion engine...");
+                       window.error_happened = false;
+                       window.current_pending_timeout = 0;
+                       $("#startconvertbtn").css("display", "none"); //hide convert button
+                       reallystartconvert();
+                       return;
+                   }
+                   if (GUEST_WAIT){
+                       $("#startconvertbtn").css("display", "none"); //hide convert button
+                       //This user is logged in but is not active
+                       delayer(DELAY_TIME * 1000, false); //milliseconds
+                       //startGateway('OTg0OQ%3D%3D');
+                   } else if (checkauth()) {
+                       $("#startconvertbtn").css("display", "none"); //hide convert button
+                       //Already converted users get 45 sec delay
+                       delayer(DELAY_TIME * 1000, false); //milliseconds
+                   }else {
+                       $("#startconvertbtn").css("display", "none"); //hide convert button
+                       startconvert();
+                       /*
+                       if (window.logged){
+                           startconvert();
+                       } else {
+                           // First conversion does not get delay
+                           $("#startconvertbtn").css("display", "none"); //hide convert button
+                           startconvert();
+                           //delayer(25 * 1000, false); //milliseconds
+                       }
+                       */
+                   }
+               }
+
+               window.pending_timeout = 10; // 10 times status queries for the pending timeout, once it's achieved, the timeout error msg will be displayed
+               window.error_happened = false;
+               window.current_pending_timeout = 0; // current passed time for checking pending timeout
+               window.need_check_pending_timeout = true;   // the flag for checking pending timeout
+               window.targetprogress = 0;
+               window.curprogress = 0;
+               window.startprogress = function(){
+                   var curr = window.curprogress;
+                   var target = window.targetprogress;
+                   var inc = 0;
+                   if (target != 100){
+                       diff = target - curr;
+                       inc = diff / 10;
+                       //if (inc > 0.5){
+                       // inc = 0.5;
+                       //}
+                       updateprogress(curr + inc);
+                       setTimeout("startprogress()", 100);
+                   } else {
+                       updateprogress(100);
+                   }
+               };
+
+               window.updateprogress = function(pct){
+                   //console.log(pct);
+                   window.curprogress = pct;
+                   pct = Math.floor(pct);
+                   $("#progress_pct")[0].innerHTML = "Progress: " + pct + "%";
+                   $("#progress_bar")[0].style.width = pct + "%";
+               };
+
+
+               window.get_id_from_url = function(url){
+                   var id = url.replace("http://gdata.youtube.com/feeds/videos/", "");
+                   return id.replace("http://gdata.youtube.com/feeds/api/videos/", "")
+               }
+
+               window.format_time = function(duration_text){
+                   var matches = duration_text.match(/^P([0-9]+Y|)?([0-9]+M|)?([0-9]+D|)?T?([0-9]+H|)?([0-9]+M|)?([0-9]+S|)?$/)
+                   var duration_hours, duration_minutes, duration_seconds;
+                   
+                   if ( matches[4] ) {
+                     duration_hours = parseInt(matches[4]); 
+                   } else {
+                     duration_hours = 0;
+                   };
+                   if ( matches[5] ) {
+                     duration_minutes = parseInt(matches[5]); 
+                   } else {
+                     duration_minutes = 0;
+                   };
+                   if ( matches[6] ) {
+                     duration_seconds = parseInt(matches[6]); 
+                   } else {
+                     duration_seconds = 0;
+                   };
+                   var duration = duration_hours * 3600 + duration_minutes *60 + duration_seconds;
+                   var minutes = Math.floor(duration/60);
+                   var seconds = duration % 60;
+                   if (seconds < 10) {
+                       seconds = "0" + seconds;
+                   }
+                   if (minutes < 10) {
+                       minutes = "0" + minutes;
+                   }
+                   return minutes + ":" + seconds
+
+               }
+
+               window.fetchrelated = function(){
+                   var form = document.forms["form_get_file"];
+                   var ytid = form["ytid"].value;
+                   $.getJSON("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=4&relatedToVideoId=" + 
+                     ytid + "&type=video&key=" + "{{ GOOGLE_API_KEY }}",
+                     function(data){
+                       $.each(data.items.slice(0, 4), function(index, value){
+                           var id = value.id["videoId"];
+                           $.getJSON("https://www.googleapis.com/youtube/v3/videos?part=id,snippet,contentDetails,statistics&maxResults=1&id=" + 
+                             id + "&key=" + "{{ GOOGLE_API_KEY }}",
+                             function(data){
+                               var title = data.items[0].snippet["title"];
+                               var thumb = data.items[0].snippet["thumbnails"]["default"]["url"];
+                               var description = data.items[0].snippet["description"];
+                               var views = data.items[0].statistics["viewCount"];
+                               var duration = format_time(data.items[0].contentDetails["duration"]);
+                               var html = "";
+                               html += '<div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">'
+                               html += '<div class="video_thum_box">';
+                               html += '<div class="vido">';
+                               html += '<a href="/videos/rawid/' + id + '/"><img alt="convert youtube" src="' + thumb + '" alt="' + title + '" title="' + title + '" /></a>';
+                               html += '</div>';
+                               html += '<div class="video_desc clearfix">';
+                               html += '<span class="dru"><strong>Duration: </strong> ' + duration + '</span>';
+                               html += '<span class="vie"><strong>Views:  &nbsp;</strong>' +  views + '</span>';
+                               html += '</div>';
+                               html += '<h3><span>Title</span><a href="/videos/rawid/' + id + '/">' + title.slice(0,60) + '</a></h3>';
+                               html += '<h4><span>Description</span>' + description.slice(0,60) + '</h4>';
+                               html += '</div>';
+                               html += '</div>'
+                               $("#related_videos_container").append(html);
+                              }
+                            );
+                          });
+                        }
+                    );
+               }
+               $(document).ready(function() {
+                   fetchrelated();
+               });
+               window.reset_pending_timeout = function(){
+                   window.need_check_pending_timeout = false;
+                   window.current_pending_timeout = 0;
+               }
+               window.statuscheck = function(id){
+                   window.currentTaskId = id;
+                   $.ajax({
+                       url: "/convert/?id=" + id + "&t=" + (new Date()).getTime(),
+                       dataTypeString: "jsonp",
+                       success: function(data, textStatus, jqXHR){
+                           //console.log(data.status);
+                           var status = data.status;
+                           var pbar = $("#progress_bar")[0];
+                           //pbar.innerHTML = status;
+                           if (status == "SUCCESS"){
+                               reset_pending_timeout();
+                               //Task completed prompt download
+                               //pbar.style.width = "100%";
+                               //updateprogress(100);
+                               conversion_done = true;
+                               window.targetprogress = 100;
+                               //$("#progress_pct")[0].innerHTML = "Progress: 100%";
+                               // window.location.replace(data.result.url);
+                               $("#delay_status_title").html("<span style='color:green;font-weight:bold'>Finished, ready to download!</span>");
+                               $("#download_url a").removeClass("link_disable").addClass("link_enable");
+                               $("#download_url a").attr("href", data.result.url);
+                               $("#progress_indictor img").attr("src", "/static/img/wait_blank.png");
+                               $("#conversion_status").css("top", "0");
+                               $("#delay_status_title").css("top", "0");
+                           } else if (status == "FAILURE") {
+                               // show FAIL to user
+                               // reset_pending_timeout();
+                               $("#progress_indictor").hide();
+                               window.error_happened = true;
+                               window.isContinueConversion = true;
+                               $("#delay_status_title").html("<span style='color:blue;font-weight:bold'>Processing, click Continue Conversion</span>");
+                               $("#startconvertbtn a").css("background-image", "url(/static/img/continue_conversion.png)");
+                               $("#startconvertbtn a div").html("Continue<br>Conversion");
+                               $("#startconvertbtn").css("display", "block"); //show convert button
+                               return;
+                           } else {
+                               if (status == "PENDING") {
+                                   window.need_check_pending_timeout = true;
+                                   $("#delay_status_title").text("Analyzing video (NOT FROZEN!!!)");
+                                   if (window.need_check_pending_timeout) {
+                                       window.current_pending_timeout ++;
+                                       if (window.current_pending_timeout >= window.pending_timeout) {
+                                           $("#progress_indictor").hide();
+                                           window.error_happened = true;
+                                           window.isContinueConversion = true;
+                                           $("#delay_status_title").html("<span style='color:blue;font-weight:bold'>Processing, click Continue Conversion</span>");
+                                           $("#startconvertbtn a").css("background-image", "url(/static/img/continue_conversion.png)");
+                                           $("#startconvertbtn a div").html("Continue<br>Conversion");
+                                           $("#startconvertbtn").css("display", "block"); //show convert button
+                                           return;
+                                       }
+                                   }
+                               } else if (status == "STARTING") {
+                                   reset_pending_timeout();
+                                   $("#delay_status_title").text("Fetching video from Youtube...");
+                               } else if (status == "DOWNLOADING") {
+                                   reset_pending_timeout();
+                                   $("#delay_status_title").text("Transferring video to our server...");
+                               } else if (status == "CONVERTING") {
+                                   reset_pending_timeout();
+                                   $("#delay_status_title").text("Converting video to your format...");
+                               } else if (status == "CLEANUP") {
+                                   reset_pending_timeout();
+                                   $("#delay_status_title").text("Preparing video for download...");
+                               } else if (status == "SIGNING") {
+                                   reset_pending_timeout();
+                                   $("#delay_status_title").text("Finalizing video for download...");
+                               }
+                               if (data.info != null){
+                               // sometimes, data.info is null when PENDING, so we need to still call the statuscheck
+                                   var progress = data.info.progress;
+                                   window.targetprogress = progress;
+                               }
+                               setTimeout("statuscheck('" + id + "')", 1000);
+                           }
+                       },
+                       error: function(jqXHR, textStatus, errorThrown){
+                           //$("#progress_bar")[0].innerHTML = "Failed, please try again...";
+                       }
+                   });
+               }
+
+               var make_seconds = function(value){
+                   value = value.trim()
+                   return value.split(":")[0] * 60 + value.split(":")[1] * 1
+               }
+
+               var calc_duration = function(start, end){
+                   return make_seconds(end) - make_seconds(start)
+               }
+
+               window.conversion_done = false;
+               window.show_progress = function(delay){
+                   return;
+                   // delays for delay milliseconds
+                   // need to add delayer mechanism
+                   if (conversion_done){
+                       return;
+                   }
+                   //console.log(delay)
+                   var newdelay = delay + 1000;
+                   $("#mainspinner")[0].innerHTML = delay/1000;
+                   setTimeout("show_progress(" + newdelay + ")", 1000);
+               }
+
+               var refresh_delayerbox = function(){
+                   if (!GUEST_WAIT || window.memberstatus && $("#delaybox").is(":visible") == false)
+                   {
+                       $("#delaybox").slideToggle("slow");
+                   }
+                   $("#countdown").hide();
+                   $("#progressstatus").show();
+                   FB.XFBML.parse();
+               }
+
+               var startconvert = function(){
+                   if (reached_limit) {
+                       //delayer(60 * 1000, true);
+                       showRateLimit();
+                       return;
+                   }
+                   var form = document.forms["form_get_file"];
+                   var format = form["format"].value;
+                   var video_duration = calc_duration(form["youtube_start"].value, form["youtube_end"].value);
+                   //
+                   //  0-10 minutes in lengh = 9 cycles
+                   //  every 10 minute increase in video length after, cycles go up by 1
+                   window.pending_timeout = 9 + (Math.floor(video_duration / 600)) * 1;
+                   if (window.allowedtypes.indexOf(format) == -1) {
+                       var msg = "Your membership plan only allows you to convert videos into " + window.allowedtypes.join(",").toUpperCase() + " formats.\n\nPlease select one of these formats, or upgrade your membership type to convert into additional formats.\n\nDo you want to upgrade?"
+                       if (confirm(msg)){
+                           window.location = "https://{{ amember_url }}/signup";
+                       }
+                       $("#startconvertbtn").css("display", "block"); //restore convert button
+                   } else {
+                       if (calc_duration(form["youtube_start"].value, form["youtube_end"].value) > window.maxduration){
+                           var msg = "Your membership plan only allows you to convert videos up to " + window.maxduration / 60 + " minutes long.\n\nPlease trim your video conversion length to " + window.maxduration / 60 + " minutes or less, or upgrade your membership type to convert longer videos.\n\nDo you want to upgrade?";
+                           if (confirm(msg)){
+                               window.location = "https://{{ amember_url }}/signup";
+                           }
+                           $("#startconvertbtn").css("display", "block"); //restore convert button
+                       } else {
+                           if (video_duration > 11 * 60) {
+                               var _cduration = 1 + Math.ceil((video_duration/60 - 20) / 10) * 0.5;
+                               var _vduration = 10 + Math.ceil((video_duration/60 - 20) / 10) * 10;
+                               if (video_duration < 20 * 60) {
+                                   _cduration = 1;
+                                   _vduration = 10;
+                               }
+                               var msg = "You want to convert a video longer than "+_vduration +" minutes.\n\nEstimated time to complete: "+ _cduration +" minutes.\n\nDuring the conversion, you must click the blue 'Continue Conversion' button.\n\nYou may have to click it more than 1 time!\n\nDo you understand and want to continue?";
+                               if (confirm(msg)) {
+                                  reallystartconvert();
+                                   refresh_delayerbox();
+                                   show_progress(0);
+                                   return;
+                               }
+                               else {
+                                   $("#startconvertbtn").css("display", "block"); //show convert button
+                                   return;
+                               }
+                           }
+                           refresh_delayerbox();
+                           show_progress(0);
+                           reallystartconvert();
+                       }
+                   }
+
+
+               }
+
+               window.reached_limit = false;
+
+               var reallystartconvert = function(){
+                   var form = document.forms["form_get_file"];
+                   //console.log(form);
+                   var params = "";
+                   var youtube_start = form["youtube_start"].value;
+                   var youtube_end = form["youtube_end"].value;
+                   var csrf = form["csrfmiddlewaretoken"].value;
+                   params += "format=" + encodeURIComponent(form["format"].value);
+                   params += "&outputfilename=" + encodeURIComponent(form["outputfilename"].value);
+                   params += "&ytid=" + encodeURIComponent(form["ytid"].value);
+                   params += "&youtube_start=" + encodeURIComponent(youtube_start);
+                   params += "&youtube_end=" + encodeURIComponent(youtube_end);
+                   params += "&transcoder_quality=" + encodeURIComponent(form["transcoder_quality"].value);
+                   params += "&ID3_title=" + encodeURIComponent(form["ID3_title"].value);
+                   params += "&ID3_artist=" + encodeURIComponent(form["ID3_artist"].value);
+                   params += "&ID3_album=" + encodeURIComponent(form["ID3_album"].value);
+                   params += "&ID3_track_no=" + encodeURIComponent(form["ID3_track_no"].value);
+                   params += "&ID3_year=" + encodeURIComponent(form["ID3_year"].value);
+                   params += "&ID3_genre=" + encodeURIComponent(form["ID3_genre"].value);
+                   params += "&ID3_comment=" + encodeURIComponent(form["ID3_comment"].value);
+                   params += "&logged=" + encodeURIComponent(window.logged);
+                   params += "&memberstatus=" + encodeURIComponent(window.memberstatus);
+                   params += "&delayeduser=" + encodeURIComponent(window.delayeduser);
+                   params += "&username=" + encodeURIComponent(window.username);
+                   params += "&iscontinue=" + encodeURIComponent(window.isContinueConversion);
+                   params += "&taskid=" + encodeURIComponent(window.currentTaskId);
+
+                   //console.log(params);
+
+
+                   $.ajax({
+                       url: "/convert/",
+                       context: document.body,
+                       data: params,
+                       type: "POST",
+                       headers: {"X-CSRFToken": csrf},
+                       success: function(data, textStatus, jqXHR){
+                           //console.log(data.id);
+                           if (data.id == 'RATELIMIT'){
+                               setCookie("gafvl", Math.floor(Math.random()*11));
+                               delayer(DELAY_TIME * 1000, true); //milliseconds
+                               window.reached_limit = true;
+                           } else if (data.id == 'TOOLONG') {
+                               alert("Videos larger than 1 Hour cant be processed at this time");
+                           } else {
+                               statuscheck(data.id);
+                               //console.log(textStatus);
+                               window.targetprogress = 0;
+                               startprogress();
+                                if (data.times != 0){
+
+                               // the 1st and 2nd times will convert directly
+                               // 3rd time needs to wait
+                                   GUEST_WAIT = data.times >= 1;
+                               }
+                               //if (GUEST_WAIT && window.logged != true){
+                               if (GUEST_WAIT && window.memberstatus != true){
+                                   setCookie("gafvl", Math.floor(Math.random()*11));
+                               }
+                           }
+                       },
+                       error: function(jqXHR, textStatus, errorThrown){
+                           //$("#progress_bar")[0].innerHTML = "FAILED";
+                       }
+                   });
+               };
+               window.showconvert = function(){
+                   //console.log(window.logged);
+                   if (typeof(window.logged) != 'undefined'){
+                       window.acclevel = "free";
+                       window.maxduration = 3 * 60;
+                       var allowedtypes = ["mp4"];
+
+                       // Limiting based on member type
+                       //window.acclevel = "pro";
+                       if (window.rawauthobj.priv != undefined){
+                           var priv = window.rawauthobj.priv;
+                           if ((priv.indexOf("17") != -1) || (priv.indexOf("18") != -1) || (priv.indexOf("19") != -1)) {
+                               window.acclevel = "unlimited";
+                           } else if ((priv.indexOf("13") != -1) || (priv.indexOf("14") != -1) || (priv.indexOf("15") != -1)){
+                               window.acclevel = "pro";
+                           } else if ((priv.indexOf("9") != -1) || (priv.indexOf("11") != -1) || (priv.indexOf("12") != -1)) {
+                               window.acclevel = "plus";
+                           } else{
+                               // for old membership
+                               window.acclevel = "pro";
+                           }
+
+                       }
+
+
+
+                       if (window.acclevel == "basic"){
+                           // we don't have basic membership anymore
+                           //allowedtypes = ["mp4"];
+                           //window.maxduration = 3 * 60;
+                       } else if (window.acclevel == "plus"){
+                           allowedtypes = ["mp3", "mp4", "m4r"]
+                           window.maxduration = 10 * 60;
+                       } else if (window.acclevel == "pro"){
+                           allowedtypes = ["mp3", "mp4", "m4r", "aac", "flv", "avi", "wmv", "wav"]
+                           window.maxduration = 60 * 60;
+                       } else if (window.acclevel == "unlimited"){
+                           allowedtypes = ["mp3", "mp4", "m4r", "aac", "flv", "avi", "wmv", "wav"]
+                           window.maxduration = 60 * 60 * 10000;   // no restriction
+                       }
+                       window.allowedtypes = allowedtypes;
+                       /*
+                   (function(validoptions){
+                       var list = $("#format")[0];
+                       var options = $("option", list);
+                       for (i=0;i<options.length;i++){
+                           var option = options[i];
+                           if (option.value == validoptions[0]){
+                               option.selected = true;
+                           }
+                           if (validoptions.indexOf(option.value) != -1){
+                               option.disabled=false;
+                           } else {
+                               option.disabled=true;
+                           }
+                       }
+                   })(allowedtypes)
+                        */
+
+
+
+
+                       $("#startconvertbtn").css("display", "block");
+                       if (window.logged){
+                           $(".agree_tos")[0].style["margin-top"] = "40px";
+                       } else {
+                           //showing ads
+                           $("#bsap_1280100").show();
+                           $("#bsap_1280101").show();
+                       }
+                   } else {
+                       setTimeout("showconvert()", 250);
+                   }
+                   if (!window.memberstatus){
+                      window.allowedtypes = ["mp3", "mp4", "m4r", "aac", "flv", "avi", "wmv"];
+                      window.maxduration = 60 * 60 * 10000;   // no restriction
+                   }
+               }
+               showconvert();
+
+           }));
+
+           //Share this, loading async!
+           var switchTo5x=true;
+           asyncscriptloader("http://w.sharethis.com/button/buttons.js", (function(){
+               window.stLight.options({publisher:'1d71a651-3a41-4306-8b91-b993a133bbd1'});
+           }));
+           /*
+           var disqus_shortname = 'getaudiofromvideo';
+           //var disqus_developer = 1; //dev mode
+           var disqus_identifier = 'oBCn88G9xO4';
+           var disqus_url = 'http://www.getaudiofromvideo.com/videos/palavra-cantada-bicicleta/';
+           (function() {
+           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+           dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+           })();
+            */
+            /* ]]> */
+        </script>
+        <script type="text/javascript">
+           function showHelloBar(){
+               if (typeof(window.memberstatus) == "undefined"){
+                   // call this function later
+                 setTimeout(function(){showHelloBar()}, 100);
+                   return;
+               }
+
+               if (!window.memberstatus){
+                   new HelloBar( 'Signup to get <strong>UNLIMITED</strong> conversions with no delays!  <a class="button" href="https://{{ amember_url }}/signup/index">>> Click HERE to register <<</a>', {
+                   showWait: 7500,
+                   hideAfter: 14000,
+                   fonts: 'Arial, Helvetica, sans-serif',
+                   positioning: 'sticky',
+                       barColor: 'rgb(250,250,50)',
+                   textColor: 'rgb(0,0,0)',
+                   helloBarLogo: false,
+                   forgetful: true,
+                   speed: 850
+                   }, 1.2 );
+               }
+           }
+           showHelloBar();
+        </script>
+     </div>
+
+
+
+{% endblock %}

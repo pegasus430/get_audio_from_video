@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+SITEMAP: http://www.getaudiofromvideo.com/sitemap.xml

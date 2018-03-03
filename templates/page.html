@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% block mainarea %}
+
+
+<div class="content clearfix static_pages">
+    <div class="clear22"></div>
+    <h2 class="static_title">{{page.title}}</h2>
+    <div class="clear22"></div>
+    <div class="static_cont">
+    	{{page.body|safe}}        
+    </div>
+    <div class="clear"></div>  
+</div>
+
+
+{% endblock %}

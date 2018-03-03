@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% block mainarea %}
+{% include "searchbar.html" %}
+
+
+{% for video in videos %}
+{{video.title}}<br>
+{% endfor %}
+
+{% endblock %}

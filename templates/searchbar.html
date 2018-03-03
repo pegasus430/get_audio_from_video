@@ -1,0 +1,58 @@
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#tags-desktop').keydown(function(){
+      $('#tags-desktop').val($(this).val());
+    });
+    $('#tags-mobile').keydown(function(){
+      $('#tags-mobile').val($(this).val());
+    });
+  });
+</script>
+
+<div class="mainwrapper hdr_srch_bg hidden-xs am-layout">
+  <div class="container w-1020">
+    <div class="row">
+      <div class="hidden-xs col-sm-12 col-md-12 col-lg-12">
+        <div class="hdr_srch_inr">
+          <!-- <div class="slect_lng clearfix">
+            <div id='goog_trans'>
+               <div id="google_translate_element"></div>
+            </div>
+          </div> -->
+          <div class="convert_box">
+            <div class="title">
+              <h1>Convert YouTube videos to MP3 now!</h1>
+            </div>
+            <!-- <img src="/static/img/new/youtube.png" alt="youtube" /> -->
+            <div class="srch_box input-group">
+              <form action="/videos/search/" method="post" name="Search_box">
+                <input type="text" class="form-control" name="query" id="tags-desktop" onkeypress="if(event.keyCode == 13){return submit_search_tag();}" alt="Enter song title or artist name here..." value="Enter song title or artist name here..." onfocus="this.value=''" onblur='if(this.value==""){this.value="Enter song title or artist name here...";}'>
+                <span onclick="document.forms['Search_box'].submit()" class="btn btn-danger srch_btn">Search</span>
+              </form>
+            </div>
+            <div class="txt_gray10 mt8 pull-left">   or if you already know the video, enter the URL ( example: http://www.youtube.com/watch?ydka_1 )</div>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>
+<div class="container w-1020 p0">
+  <div>
+    <div class="col-xs-12 hidden-sm hidden-md hidden-lg p0">
+      <div class="srch_box">
+        <form action="/videos/search/" method="post" name="Search_box_mobile">
+        <div class="input-group">
+          <input type="text" class="form-control" name="query" id="tags-mobile" size="100" onkeypress="if(event.keyCode == 13){return submit_search_tag();}" alt="Enter song title or artist name here..." value="Enter song title or artist name here..." onfocus="this.value=''" onblur='if(this.value==""){this.value="Enter song title or artist name here...";}'>
+          <span class="input-group-btn">
+            <span onclick="document.forms['Search_box_mobile'].submit()" class="btn item-search btn-danger">Search</span>
+          </span>
+        </div>  
+        </form>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>
